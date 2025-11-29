@@ -5,6 +5,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { connectDatabase } from "./src/configs/database.js";
+import { globalErrorHandler } from "./src/middlewares/globalError.middleware.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -21,6 +22,8 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(globalErrorHandler);
 
 const startServer = async () => {
   try {
