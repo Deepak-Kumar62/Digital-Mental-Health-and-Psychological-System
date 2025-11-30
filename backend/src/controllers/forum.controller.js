@@ -1,4 +1,5 @@
-const ForumPost = require("../models/ForumPost.js");
+import ForumPost from "../models/ForumPost.model.js";
+
 
 export const createPost = async (req, res) => {
   try {
@@ -13,7 +14,7 @@ export const createPost = async (req, res) => {
   }
 };
 
-exports.getAllPosts = async (req, res) => {
+export const getAllPosts = async (req, res) => {
   try {
     const posts = await ForumPost.find().sort({ postedAt: -1 });
     res.json(posts);
