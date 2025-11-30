@@ -16,4 +16,6 @@ const forumPostSchema = new mongoose.Schema({
   postedAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("ForumPost", forumPostSchema);
+const ForumPost = mongoose.model("ForumPost", forumPostSchema);
+
+export default ForumPost;

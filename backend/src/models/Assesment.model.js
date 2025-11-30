@@ -8,10 +8,12 @@ const assessmentSchema = new mongoose.Schema({
   result: {
     type: String,
     enum: ["Low Stress", "Moderate Stress", "High Stress"],
-    required: true
+    required: true,
   },
 
-  takenAt: { type: Date, default: Date.now }
+  takenAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Assessment", assessmentSchema);
+const Assessment = mongoose.model("Assessment", assessmentSchema);
+
+export default Assessment;
